@@ -1,0 +1,48 @@
+name: CD
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '14.x'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Compile code
+        run: npm run build
+
+      - name: Copy README to build
+        run: cp README.md build/README.md | true
+
+      - name: Copy LICENSE to build
+        run: cp LICENSE.md build/LICENSE.md | true
+
+      - name: Copy templates to build
+        run: cp -r templates build/templates | true
+
+      - name: Copy configurer to build
+        run: cp -r configurer build/configurer | true
+
+      - name: Automatic GitHub Release
+        uses: justincy/github-action-npm-release@2.0.1
+        id: release
+
+      - name: Publish to NPM Registry
+        run: cd build && npm publish --access public
+        if: steps.release.outputs.released == 'true'
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          name: Deploy
