@@ -20,13 +20,7 @@
     "experimentalDecorators": true,
     "useDefineForClassFields": false,
     "verbatimModuleSyntax": true,
-    "forceConsistentCasingInFileNames": true,
-    "paths": {
-      "#bin/*": ["./bin/*.ts"],
-      "#src/*": ["./src/*.ts"],
-      "#tests/*": ["./tests/*.ts"],
-      "#src/types": ["./src/types/index.ts"]
-    }
+    "forceConsistentCasingInFileNames": true
   },
   "include": ["./**/*"],
   "exclude": ["build", "node_modules"]
