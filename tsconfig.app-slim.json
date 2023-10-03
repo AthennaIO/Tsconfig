@@ -4,9 +4,9 @@
     "declaration": false,
     "sourceMap": true,
     "paths": {
-      "#bin/*": ["../../../../bin/*.ts"],
-      "#src/*": ["../../../../src/*.ts"],
-      "#tests/*": ["../../../../tests/*.ts"]
+      "#bin/*": ["../../../bin/*.ts"],
+      "#src/*": ["../../../src/*.ts"],
+      "#tests/*": ["../../../tests/*.ts"]
     }
   }
 }

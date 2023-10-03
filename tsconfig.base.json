@@ -6,9 +6,9 @@
   },
   "compilerOptions": {
     "strict": false,
-    "rootDir": "../../../../",
-    "baseUrl": "../../../../",
-    "outDir": "../../../../build",
+    "rootDir": "../../../",
+    "baseUrl": "../../../",
+    "outDir": "../../../build",
     "module": "NodeNext",
     "target": "ESNext",
     "moduleResolution": "NodeNext",
@@ -22,6 +22,6 @@
     "verbatimModuleSyntax": true,
     "forceConsistentCasingInFileNames": true
   },
-  "include": ["../../../../**/*"],
-  "exclude": ["../../../../build", "../../../../node_modules"]
+  "include": ["../../../**/*"],
+  "exclude": ["../../../build", "../../../node_modules"]
 }
