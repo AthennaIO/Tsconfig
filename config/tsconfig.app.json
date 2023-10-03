@@ -1,0 +1,20 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "declaration": false,
+    "sourceMap": true,
+    "paths": {
+      "#app/*": ["../../../../app/*.ts"],
+      "#bootstrap/*": ["../../../../bootstrap/*.ts"],
+      "#config/*": ["../../../../config/*.ts"],
+      "#database/*": ["../../../../database/*.ts"],
+      "#lang/*": ["../../../../lang/*.ts"],
+      "#providers/*": ["../../../../providers/*.ts"],
+      "#facades/*": ["../../../../facades/*.ts"],
+      "#resources/*": ["../../../../resources/*.ts"],
+      "#routes/*": ["../../../../routes/*.ts"],
+      "#storage/*": ["../../../../storage/*.ts"],
+      "#tests/*": ["../../../../tests/*.ts"]
+    }
+  }
+}
