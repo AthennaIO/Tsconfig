@@ -117,9 +117,6 @@ out
 # Compiled code
 dist
 build
-*.js
-*.d.ts
-*.js.map
 !tests/stubs/**/*.js
 !tests/stubs/**/*.d.ts
 !tests/stubs/**/*.js.map
