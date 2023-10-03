@@ -1,0 +1,12 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "declaration": false,
+    "sourceMap": true,
+    "paths": {
+      "#bin/*": ["../../../../bin/*.ts"],
+      "#src/*": ["../../../../src/*.ts"],
+      "#tests/*": ["../../../../tests/*.ts"]
+    }
+  }
+}

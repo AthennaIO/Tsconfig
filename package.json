@@ -1,6 +1,6 @@
 {
   "name": "@athenna/tsconfig",
-  "version": "4.0.0",
+  "version": "4.2.0",
   "description": "Exports the base TypeScript configuration for Athena applications and packages.",
   "license": "MIT",
   "author": "João Lenon <lenon@athenna.io>",
@@ -14,14 +14,20 @@
     "typescript"
   ],
   "files": [
-    "*.json"
+    "tsconfig.app.json",
+    "tsconfig.lib.json",
+    "tsconfig.base.json"
   ],
+  "scripts": {},
+  "type": "module",
   "exports": {
+    ".": "./src/index.js",
     "./package.json": "./package.json",
-    "./tsconfig.app.json": "./tsconfig.app.json",
-    "./tsconfig.app.slim.json": "./tsconfig.app.slim.json",
-    "./tsconfig.base.json": "./tsconfig.base.json",
-    "./tsconfig.lib.json": "./tsconfig.lib.json"
+    "./tsconfig.app.json": "./config/tsconfig.app.json",
+    "./tsconfig.app-slim.json": "./config/tsconfig.app.slim.json",
+    "./tsconfig.base.json": "./config/tsconfig.base.json",
+    "./tsconfig.lib.json": "./config/tsconfig.lib.json",
+    "./tsconfig.lib.build.json": "./config/tsconfig.lib.build.json"
   },
   "devDependencies": {
     "commitizen": "^4.2.6",
