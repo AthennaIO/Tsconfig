@@ -1,6 +1,6 @@
 {
   "name": "@athenna/tsconfig",
-  "version": "4.7.0",
+  "version": "4.8.0",
   "description": "Exports the base TypeScript configuration for Athena applications and packages.",
   "license": "MIT",
   "author": "João Lenon <lenon@athenna.io>",
