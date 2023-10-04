@@ -20,7 +20,7 @@ rimraf('build')
 /**
  * Run tsc compiler.
  */
-// await tsc()
+await tsc()
 
 /**
  * Copy default files to build folder.
