@@ -18,11 +18,6 @@ import { rimraf } from 'rimraf'
 rimraf('build')
 
 /**
- * Run tsc compiler.
- */
-await tsc()
-
-/**
  * Copy default files to build folder.
  */
 copyfiles([
@@ -35,4 +30,10 @@ copyfiles([
   'build'
 ], '', (err) => {
   if (err) throw err
+
+  /**
+   * Run tsc compiler after copyfiles because
+   * `tsc` exits the process after compile.
+   */
+  tsc()
 })
