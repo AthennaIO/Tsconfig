@@ -7,17 +7,32 @@
  * file that was distributed with this source code.
  */
 
-import { sep } from 'node:path'
-import { spawn } from 'node:child_process'
+import copyfiles from 'copyfiles'
 
-const bin = `${process.cwd()}${sep}node_modules${sep}.bin`
+import { tsc } from './tsc.js'
+import { rimraf } from 'rimraf'
 
-const tsc = `${bin}${sep}tsc`
-const rimraf = `${bin}${sep}rimraf`
-const copyfiles = `${bin}${sep}copyfiles`
+/**
+ * Delete old build folder.
+ */
+rimraf('build')
 
-const options = { shell: true, stdio: 'inherit' }
+/**
+ * Run tsc compiler.
+ */
+// await tsc()
 
-spawn(`${rimraf} build`, options)
-spawn(`${tsc} --project node_modules/@athenna/tsconfig/tsconfig.lib-build.json`, options)
-spawn(`${copyfiles} templates configurer package.json package-lock.json LICENSE.md README.md build`, options)
+/**
+ * Copy default files to build folder.
+ */
+copyfiles([
+  'templates',
+  'configurer',
+  'package.json',
+  'package-lock.json',
+  'LICENSE.md',
+  'README.md',
+  'build'
+], '', (err) => {
+  if (err) throw err
+})
