@@ -17,8 +17,9 @@ import copyfilesSync from 'copyfiles'
  * @return {Promise<void>}
  */
 export function copyfiles(files, dest) {
+  files.push(dest)
   return new Promise((resolve, reject) => {
-    copyfilesSync(files.push(dest), '', (err) => {
+    copyfilesSync(files, '', (err) => {
       if (err) {
         return reject(err)
       }
