@@ -7,8 +7,27 @@
  * file that was distributed with this source code.
  */
 
-export async function tsc() {
-  process.argv.push('--project', 'node_modules/@athenna/tsconfig/tsconfig.lib-build.json')
+import lodash from 'lodash'
 
-  await import('typescript/lib/tsc.js')
+/**
+ * Run tsc compiler "programmatically".
+ *
+ * @param {string} tsConfigPath
+ * @return {Promise<void>}
+ */
+export async function tsc(tsConfigPath) {
+  const originalArgv = lodash.cloneDeep(process.argv)
+  const originalExit = lodash.cloneDeep(process.exit)
+
+  process.exit = () => {}
+
+  process.argv = process.argv.slice(0, 2)
+  process.argv.push('--project', tsConfigPath)
+
+  try {
+    await import('typescript/lib/tsc.js')
+  } finally {
+    process.argv = originalArgv
+    process.exit = originalExit
+  }
 }

@@ -7,33 +7,23 @@
  * file that was distributed with this source code.
  */
 
-import copyfiles from 'copyfiles'
 
 import { tsc } from './tsc.js'
 import { rimraf } from 'rimraf'
+import { copyfiles } from './copyfiles.js'
+import { META_FILES, TS_CONFIG_PATH, BUILD_FOLDER_NAME } from './constants.js'
 
 /**
- * Delete old build folder.
+ * Delete old `BUILD_FOLDER_NAME` folder.
  */
-rimraf('build')
+await rimraf(BUILD_FOLDER_NAME)
 
 /**
- * Copy default files to build folder.
+ * Compile the application using tsc.
  */
-copyfiles([
-  'templates',
-  'configurer',
-  'package.json',
-  'package-lock.json',
-  'LICENSE.md',
-  'README.md',
-  'build'
-], '', (err) => {
-  if (err) throw err
+await tsc(TS_CONFIG_PATH)
 
-  /**
-   * Run tsc compiler after copyfiles because
-   * `tsc` exits the process after compile.
-   */
-  tsc()
-})
+/**
+ * Copy `META_FILES` to `BUILD_FOLDER_NAME` folder.
+ */
+await copyfiles(META_FILES, BUILD_FOLDER_NAME)
