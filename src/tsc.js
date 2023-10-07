@@ -17,7 +17,7 @@ import lodash from 'lodash'
  */
 export async function tsc(tsConfigPath) {
   const originalArgv = lodash.cloneDeep(process.argv)
-  const originalExit = lodash.cloneDeep(process.exit)
+  const originalExit = process.exit
 
   process.exit = () => {}
 
