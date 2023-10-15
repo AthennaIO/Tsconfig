@@ -10,7 +10,7 @@
       "#database/*": ["../../../database/*.ts"],
       "#lang/*": ["../../../lang/*.ts"],
       "#providers/*": ["../../../providers/*.ts"],
-      "#facades/*": ["../../../facades/*.ts"],
+      "#facades/*": ["../../../providers/facades/*.ts"],
       "#resources/*": ["../../../resources/*.ts"],
       "#routes/*": ["../../../routes/*.ts"],
       "#storage/*": ["../../../storage/*.ts"],
