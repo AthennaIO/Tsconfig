@@ -4,6 +4,7 @@
 export const META_FILES = [
   'templates/**/*',
   'configurer/**/*',
+  'resources/**/*',
   'package.json',
   'package-lock.json',
   'LICENSE.md',
