@@ -17,6 +17,7 @@
     "esModuleInterop": true,
     "removeComments": false,
     "resolveJsonModule": true,
+    "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "useDefineForClassFields": false,
     "verbatimModuleSyntax": true,
