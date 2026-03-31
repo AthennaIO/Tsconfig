@@ -1,6 +1,6 @@
 {
   "name": "@athenna/tsconfig",
-  "version": "5.0.0",
+  "version": "5.1.0",
   "description": "Exports the base TypeScript configuration for Athena applications and packages.",
   "license": "MIT",
   "author": "João Lenon <lenon@athenna.io>",
@@ -37,14 +37,14 @@
   "dependencies": {
     "copyfiles": "^2.4.1",
     "cross-env": "^7.0.3",
-    "lodash": "^4.17.21",
+    "lodash": "^4.17.23",
     "reflect-metadata": "^0.1.14",
     "rimraf": "^5.0.10",
     "ts-node": "^10.9.2",
-    "typescript": "^5.5.4"
+    "typescript": "^5.9.3"
   },
   "devDependencies": {
-    "commitizen": "^4.3.0",
+    "commitizen": "^4.3.1",
     "cz-conventional-changelog": "^3.3.0",
     "husky": "^3.1.0"
   },
