@@ -25,12 +25,6 @@ import { join, dirname, relative, basename } from 'node:path'
 const IGNORED_DIRS = ['node_modules', 'build', 'dist', 'coverage', 'public']
 
 /**
- * How deep the search for nested TypeScript projects goes. Applications
- * keep them one or two levels down, like "resources" or "src/resources".
- */
-const MAX_DEPTH = 2
-
-/**
  * Find the directories that declare their own "tsconfig.json".
  *
  * A directory with its own TypeScript project is compiled by whoever owns
@@ -41,15 +35,15 @@ const MAX_DEPTH = 2
  * never the files reached through an import: whatever the server actually
  * imports from there is still compiled and emitted.
  *
+ * There is no depth limit on purpose. The search never descends into a
+ * directory that already owns a project, so the cost stays bound to the
+ * tree of the application itself, and a limit would only make the feature
+ * work depending on how deep the frontend happens to be placed.
+ *
  * @param {string} root
- * @param {number} depth
  * @return {string[]}
  */
-function findNestedProjects(root, depth = 0) {
-  if (depth >= MAX_DEPTH) {
-    return []
-  }
-
+function findNestedProjects(root) {
   const projects = []
 
   let entries = []
@@ -76,7 +70,7 @@ function findNestedProjects(root, depth = 0) {
       continue
     }
 
-    projects.push(...findNestedProjects(path, depth + 1))
+    projects.push(...findNestedProjects(path))
   }
 
   return projects
