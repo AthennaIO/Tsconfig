@@ -3,6 +3,7 @@
   "exclude": [
     "../../../build",
     "../../../tests",
-    "../../../node_modules"
+    "../../../node_modules",
+    "../../../src/resources"
   ]
 }
